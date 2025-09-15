@@ -4100,11 +4100,7 @@ ZEND_API ZEND_COLD void ZEND_FASTCALL zend_fcall_interrupt(zend_execute_data *ca
 		} \
 	} while (0)
 
-#define ZEND_VM_FCALL_INTERRUPT_CHECK(call) do { \
-		if (UNEXPECTED(zend_atomic_bool_load_ex(&EG(vm_interrupt)))) { \
-			zend_fcall_interrupt(call); \
-		} \
-	} while (0)
+#define ZEND_VM_FCALL_INTERRUPT_CHECK(call)
 
 /*
  * Stack Frame Layout (the whole stack frame is allocated at once)
